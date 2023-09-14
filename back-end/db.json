@@ -28,7 +28,7 @@
       "id": 4,
       "title": "210 S Wabash Ave. - Adams & Wabash Garage",
       "price": 1400,
-      "description": "Enter this location at 210 S Wabash Ave.  This is the Adams and Wabash garage operated by InterPark. It is located on the west/right-hand side of S Wabash Ave. (a one-way street) between E Adams St. and E Jackson Blvd. You may also enter this location at its other entrance, 17 E Adams St.",
+      "description": "Enter this location at 210 S Wabash Ave. This is the Adams and Wabash garage operated by InterPark. It is located on the west/right-hand side of S Wabash Ave. (a one-way street) between E Adams St. and E Jackson Blvd. You may also enter this location at its other entrance, 17 E Adams St.",
       "distance": "0.2 mi",
       "image": "https://res.cloudinary.com/spothero/image/upload/v1579704583/front-end/code-challenge/xlmmigpvhmb0e1snodcj.jpg"
     },
@@ -81,5 +81,15 @@
       "image": "https://res.cloudinary.com/spothero/image/upload/v1579704582/front-end/code-challenge/iy9iobjbtmrix01hp2yw.jpg"
     }
   ],
-  "reservations": []
+  "reservations": [],
+  "users": [
+    {
+      "activity": "inactive",
+      "fname": "Mylo",
+      "lname": "James",
+      "email": "mylo.james114@gmail.com",
+      "phone": "8476027276",
+      "id": "0b4a3c75-f808-490b-8977-2be04e8b0e5b"
+    }
+  ]
 }

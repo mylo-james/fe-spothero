@@ -1,3 +1,65 @@
 .Checkout {
-    // Checkout styles
+    margin: auto;
+    margin-top: 20px;
+    overflow: hidden;
+    width: 400px;
+    border: 1px $color-dashboard solid;
+    border-radius: 10px;
+
+    nav {
+        background-color: $color-shift;
+        height: 40px;
+        display: flex;
+        align-items: center;
+
+        .TextButton {
+            color: $color-white;
+            margin: 20px;
+
+            &:hover {
+                color: $color-dashboard;
+            }
+        }
+    }
+
+    header {
+        height: 120px;
+        margin: 20px;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: solid 1px $color-dashboard;
+
+        img {
+            border-radius: 10px;
+            object-fit: cover;
+            width: 150px;
+            margin-right: 20px;
+        }
+
+        .headerText {
+            font-size: 18px;
+        }
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        padding-top: 10px;
+
+        .Button {
+            background: $color-go;
+            color: $color-white;
+            width: 180px;
+            align-self: flex-end;
+            margin-top: 10px;
+            padding: 10px 0;
+
+            &:hover {
+                color: $color-dashboard;
+            }
+        }
+    }
 }

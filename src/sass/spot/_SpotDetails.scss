@@ -1,0 +1,58 @@
+.SpotDetails {
+    height: 100%;
+    width: 100%;
+    min-width: 400px;
+    display: flex;
+    align-items: center;
+    background-color: $color-fuel;
+    opacity: 0;
+    transition: opacity $animation;
+
+    section {
+        margin: auto;
+        width: 400px;
+        background-color: $color-white;
+        display: flex;
+        flex-direction: column;
+
+        .info {
+            padding: 30px;
+            padding-top: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h3,
+        h4 {
+            text-align: center;
+        }
+
+        p {
+            font-size: $font-size-sm;
+        }
+    }
+
+    .Button {
+        align-self: flex-end;
+        padding: 10px;
+    }
+
+    .TextButton {
+        width: 200px;
+        height: 40px;
+        margin: auto;
+        margin-top: 20px;
+        border-radius: 2px;
+        align-self: center;
+        background-color: $color-shift;
+        color: $color-white;
+
+        &:hover {
+            color: $color-dashboard;
+        }
+    }
+}
+
+.fadeIn {
+    opacity: 1;
+}

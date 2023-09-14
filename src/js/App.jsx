@@ -1,19 +1,27 @@
 /* eslint-disable react/jsx-no-bind */
 import {hot} from 'react-hot-loader/root';
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useDispatch} from 'react-redux';
 import PropTypes from 'prop-types';
-import {
-    Route,
-    Switch
-} from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
 import Checkout from './checkout/Checkout';
 import Confirmation from './confirmation/Confirmation';
 import Search from './search/Search';
 import '../sass/main.scss';
+import {UPDATE_USER} from './checkout/checkout-actions';
+import Axios from 'axios';
 
-const App = ({
-    spots
-}) => {
+const App = ({spots}) => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        (async () => {
+            const sessionId = sessionStorage.getItem('sessionId');
+            if (sessionId) {
+                const {data} = await Axios.get(`/users/${sessionId}`);
+                dispatch({type: 'UPDATE_USER', payload: data});
+            }
+        })();
+    }, [dispatch]);
     return (
         <Switch>
             <Route
@@ -24,8 +32,15 @@ const App = ({
                 }}
             />
             <Route
-                path="/checkout"
-                component={Checkout}
+                path="/checkout/:id"
+                render={() => {
+                    return (
+                        <Checkout
+                            spots={spots}
+                            selectedSpot={spots.selectedSpot}
+                        />
+                    );
+                }}
             />
             <Route
                 path="/confirmation"
@@ -36,7 +51,7 @@ const App = ({
 };
 
 App.propTypes = {
-    spots: PropTypes.arrayOf(PropTypes.object).isRequired
+    spots: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default hot(App);

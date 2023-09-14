@@ -1,0 +1,32 @@
+.TextInput {
+    @include font-family;
+    display: inline-block;
+    white-space: nowrap;
+    appearance: none;
+    background: none;
+    border: 1px $color-dashboard solid;
+    border-radius: 5px;
+    padding: 7px 10px;
+    user-select: none;
+    position: relative;
+    font-weight: $font-weight-normal;
+    color: $color-black;
+    outline: none;
+
+    &:focus,
+    &:active {
+        border: 1px $color-go solid;
+    }
+
+    &:disabled {
+        cursor: not-allowed;
+        color: $color-dashboard;
+    }
+}
+
+.TextInputLabel {
+    color: $color-cement;
+    font-weight: $font-weight-semi-bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}

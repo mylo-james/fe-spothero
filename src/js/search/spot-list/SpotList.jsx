@@ -7,18 +7,21 @@ export default class SpotList extends PureComponent {
     static propTypes = {
         selectedSpot: PropTypes.object,
         spots: PropTypes.arrayOf(PropTypes.object).isRequired,
-        setSpot: PropTypes.func.isRequired
+        setSpot: PropTypes.func.isRequired,
     };
+
+    componentDidMount() {
+        document
+            .getElementsByClassName('SpotItem-selected')[0]
+            ?.scrollIntoView();
+    }
 
     _onDetailsClick = spot => {
         this.props.setSpot(spot);
     };
 
     render() {
-        const {
-            selectedSpot,
-            spots
-        } = this.props;
+        const {selectedSpot, spots} = this.props;
 
         return (
             <div className="SpotList">
@@ -35,13 +38,12 @@ export default class SpotList extends PureComponent {
                             <SpotItem
                                 key={spot.id}
                                 data={spot}
-                                isSelected={selectedSpot && selectedSpot.id === spot.id}
+                                isSelected={selectedSpot?.id === spot.id}
                                 onDetailsClick={this._onDetailsClick}
                             />
                         );
                     })}
                 </div>
-
             </div>
         );
     }
