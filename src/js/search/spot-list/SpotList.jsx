@@ -2,12 +2,16 @@ import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import TextButton from '../../common/TextButton';
 import SpotItem from '../../spot/SpotItem';
+import Button from '../../common/Button';
+import {DESTROY_USER, destroyUser} from '../../checkout/checkout-actions';
+import {connect} from 'react-redux';
 
-export default class SpotList extends PureComponent {
+class SpotList extends PureComponent {
     static propTypes = {
         selectedSpot: PropTypes.object,
         spots: PropTypes.arrayOf(PropTypes.object).isRequired,
         setSpot: PropTypes.func.isRequired,
+        destroyUser: PropTypes.func,
     };
 
     componentDidMount() {
@@ -20,6 +24,12 @@ export default class SpotList extends PureComponent {
         this.props.setSpot(spot);
     };
 
+    // Clears the session storage and triggers the Redux action to destroy user data.
+    _onRemoveSession = () => {
+        sessionStorage.clear();
+        this.props.destroyUser({type: DESTROY_USER});
+    };
+
     render() {
         const {selectedSpot, spots} = this.props;
 
@@ -30,7 +40,12 @@ export default class SpotList extends PureComponent {
                         <TextButton>Chicago</TextButton> &gt; Millennium Park
                     </div>
                     <h1>Millennium Park</h1>
-                    <p>{spots.length} Spots Available</p>
+                    <div className="buttonContainer">
+                        <p>{spots.length} Spots Available</p>
+                        <Button onClick={this._onRemoveSession}>
+                            Clear Session
+                        </Button>
+                    </div>
                 </div>
                 <div className="SpotList-spots">
                     {spots.map(spot => {
@@ -48,3 +63,9 @@ export default class SpotList extends PureComponent {
         );
     }
 }
+
+const mapDispatchToProps = dispatch => ({
+    destroyUser: () => dispatch(destroyUser()),
+});
+
+export default connect(null, mapDispatchToProps)(SpotList);

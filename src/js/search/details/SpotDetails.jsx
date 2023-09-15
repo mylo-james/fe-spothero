@@ -7,6 +7,14 @@ import {connect} from 'react-redux';
 import {push as dispatchPush} from 'connected-react-router';
 import Button from '../../common/Button';
 
+/**
+ * SpotDetails Component: Displays details of a selected spot and allows users to book it.
+ *
+ * @param {object} selectedSpot - The selected spot's details.
+ * @param {function} dispatchPush - Redux action to navigate to different pages.
+ * @param {function} setSpot - Redux action to update the selected spot.
+ * @returns {JSX.Element} - Rendered SpotDetails Component
+ */
 const SpotDetails = ({selectedSpot, dispatchPush: push, setSpot}) => {
     const modal = useRef('modal');
 
@@ -46,11 +54,28 @@ const SpotDetails = ({selectedSpot, dispatchPush: push, setSpot}) => {
 };
 
 SpotDetails.propTypes = {
+    /**
+     * The selected spot's details.
+     */
     selectedSpot: PropTypes.object,
+
+    /**
+     * Redux action to navigate to different pages.
+     */
     dispatchPush: PropTypes.func,
+
+    /**
+     * Redux action to update the selected spot.
+     */
     setSpot: PropTypes.func,
 };
 
+/**
+ * Map Redux state to component props.
+ *
+ * @param {Object} state - Redux state.
+ * @returns {Object} The selected spot from the Redux store.
+ */
 const mapStateToProps = state => {
     const {
         spot: {selected: selectedSpot},

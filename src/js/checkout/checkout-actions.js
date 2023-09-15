@@ -1,6 +1,27 @@
+/**
+ * Action type for updating user activity.
+ * @type {string}
+ */
 export const UPDATE_ACTIVITY = 'UPDATE_ACTIVITY';
+
+/**
+ * Action type for updating user information.
+ * @type {string}
+ */
 export const UPDATE_USER = 'UPDATE_USER';
 
+/**
+ * Action type for destroying user data.
+ * @type {string}
+ */
+export const DESTROY_USER = 'DESTROY_USER';
+
+/**
+ * Action creator for updating user activity.
+ *
+ * @param {any} payload - The data payload for the action.
+ * @returns {Object} The action object.
+ */
 export const updateActivity = payload => {
     return {
         type: UPDATE_ACTIVITY,
@@ -8,6 +29,12 @@ export const updateActivity = payload => {
     };
 };
 
+/**
+ * Action creator for updating user information.
+ *
+ * @param {any} payload - The data payload for the action.
+ * @returns {Object} The action object.
+ */
 export const updateUser = payload => {
     return {
         type: UPDATE_USER,
@@ -15,9 +42,13 @@ export const updateUser = payload => {
     };
 };
 
-export const purchase = data => {
+/**
+ * Action creator for destroying user data.
+ *
+ * @returns {Object} The action object.
+ */
+export const destroyUser = () => {
     return {
-        type: SPOT_PURCHASE,
-        payload: data,
+        type: DESTROY_USER,
     };
 };

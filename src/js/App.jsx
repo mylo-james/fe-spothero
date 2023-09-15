@@ -8,20 +8,25 @@ import Checkout from './checkout/Checkout';
 import Confirmation from './confirmation/Confirmation';
 import Search from './search/Search';
 import '../sass/main.scss';
-import {UPDATE_USER} from './checkout/checkout-actions';
 import Axios from 'axios';
 
 const App = ({spots}) => {
     const dispatch = useDispatch();
+
+    // UseEffect to fetch user data when the component mounts
     useEffect(() => {
         (async () => {
             const sessionId = sessionStorage.getItem('sessionId');
+
             if (sessionId) {
+                // Fetch user data based on sessionId
                 const {data} = await Axios.get(`/users/${sessionId}`);
+
                 dispatch({type: 'UPDATE_USER', payload: data});
             }
         })();
     }, [dispatch]);
+
     return (
         <Switch>
             <Route

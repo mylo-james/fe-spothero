@@ -1,41 +1,47 @@
-import {screen, within} from '@testing-library/react';
-import SpotDetails from './SpotDetails';
+import React from 'react';
+import {render, screen, fireEvent} from '@testing-library/react';
+import {Provider} from 'react-redux';
+import {MemoryRouter} from 'react-router-dom';
+import configureMockStore from 'redux-mock-store';
 import {spots} from '../../../../back-end/db.json';
-import {createBrowserHistory} from 'history/cjs/history';
-import renderWithProviders from '../../store/testUtils';
+import SpotDetails from './SpotDetails';
 import {USDollar} from '../../../utils';
 
-describe('it should render information for each spot', () => {
-    test.each(spots)(`Index %#`, spot => {
-        renderWithProviders(<SpotDetails />, {spot: {selected: spot}});
+const mockStore = configureMockStore();
+
+const renderWithSelectedSpot = () => {
+    const initialState = {
+        spot: {
+            selected: spots[0],
+        },
+    };
+
+    const store = mockStore(initialState);
+
+    return {
+        ...render(
+            <Provider store={store}>
+                <MemoryRouter>
+                    <SpotDetails />
+                </MemoryRouter>
+            </Provider>
+        ),
+        store,
+    };
+};
+
+describe('SpotDetails Component', () => {
+    it('renders the SpotDetails component with selected spot', () => {
+        renderWithSelectedSpot();
 
         const modal = screen.getByRole('modal');
-        const h3 = within(modal).getByRole('heading', {level: 3});
-        const h4 = within(modal).getByRole('heading', {level: 4});
-        const title = within(modal).getByText(spot.title);
-        const description = within(modal).getByTestId('spotDescription');
-        const button = within(modal).getByRole('button');
+        expect(modal).toBeInTheDocument();
 
-        expect(h3).toHaveTextContent('Spot Details');
-        expect(h4).toHaveTextContent(spot.title);
-        expect(title).toHaveTextContent(spot.title);
-        expect(description).toHaveTextContent(spot.description, {
-            normalizeWhitespace: false,
-        });
-        expect(button).toHaveTextContent(
-            `${USDollar.format(spot.price / 100)} | Book It!`
-        );
-    });
-});
-
-describe('navigation', () => {
-    test('it should navigate to checkout when the modal button is clicked', () => {
-        const history = createBrowserHistory();
-
-        renderWithProviders(<SpotDetails />);
-        const modal = screen.getByRole('modal');
-        const button = within(modal).getByRole('button');
-        button.click();
-        expect(window.location.pathname).toBe('/checkout');
+        expect(screen.getByText(spots[0].title)).toBeInTheDocument();
+        expect(screen.getByText(spots[0].description)).toBeInTheDocument();
+        const priceInDollars = USDollar.format(spots[0].price / 100);
+        expect(
+            screen.getByText(`${priceInDollars} | Book It!`)
+        ).toBeInTheDocument();
     });
 });

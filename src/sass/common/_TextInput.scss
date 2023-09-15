@@ -30,3 +30,20 @@
     margin-bottom: 5px;
     margin-top: 5px;
 }
+
+.TextLabelError {
+    color: $color-stop;
+}
+
+.TextError {
+    border: 1px solid $color-stop;
+    caret-color: $color-stop;
+
+    &:focus {
+        border: 1px solid $color-stop;
+    }
+}
+
+.errorText {
+    color: $color-stop;
+}

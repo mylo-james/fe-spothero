@@ -81,15 +81,40 @@
       "image": "https://res.cloudinary.com/spothero/image/upload/v1579704582/front-end/code-challenge/iy9iobjbtmrix01hp2yw.jpg"
     }
   ],
-  "reservations": [],
+  "reservations": [
+    {
+      "spot": 1,
+      "user": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1",
+      "id": 1
+    },
+    {
+      "spot": 3,
+      "user": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1",
+      "id": 2
+    },
+    {
+      "spot": 3,
+      "user": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1",
+      "id": 3
+    },
+    {
+      "spot": 3,
+      "user": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1",
+      "id": 4
+    },
+    {
+      "spot": 5,
+      "user": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1",
+      "id": 5
+    }
+  ],
   "users": [
     {
-      "activity": "inactive",
-      "fname": "Mylo",
-      "lname": "James",
-      "email": "mylo.james114@gmail.com",
-      "phone": "8476027276",
-      "id": "0b4a3c75-f808-490b-8977-2be04e8b0e5b"
+      "fname": "jglkajsdlf",
+      "lname": "",
+      "email": "mylo..com",
+      "phone": "(847) 602-7276",
+      "id": "c4726fad-c2bd-41ee-9db0-9eaf5e2452b1"
     }
   ]
 }
