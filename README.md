@@ -2,6 +2,8 @@
 
 Welcome to Mylo's parking challenge! In this project, I've not only parked in the provided spots but also introduced some exciting new features to enhance the user experience. I've also dedicated a significant amount of time to documenting the changes made to ensure clarity and maintainability. 📝
 
+## [Github](https://github.com/mylo-james/fe-spothero)
+
 ## Features 🌟
 
 ### Story #1: Spot Details Modal (✔️)
