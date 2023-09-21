@@ -11,26 +11,20 @@ import {updateUser} from '../checkout/checkout-actions';
 class Confirmation extends PureComponent {
     static propTypes = {
         email: PropTypes.string.isRequired,
-        user: PropTypes.object.isRequired,
         selectedSpot: PropTypes.object,
+        updateSelected: PropTypes.func,
+        updateUser: PropTypes.func,
         pushTo: PropTypes.func.isRequired,
+        match: PropTypes.object
     };
 
-    constructor(props) {
-        super(props);
-
-        const {selectedSpot, pushTo, user} = props;
-    }
-
-    //onMount looks for the reservation based off the the id from params
     componentDidMount() {
-        // make api call for id
         getReservation(this.props.match.params.resId).then(data => {
             if (data) {
                 this.props.updateSelected(data.spot);
                 this.props.updateUser(data.user);
             } else {
-                pushTo('/');
+                this.pushTo('/');
             }
         });
     }

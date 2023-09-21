@@ -84,44 +84,6 @@
   "reservations": [
     {
       "spot": {
-        "id": 2,
-        "title": "55 E Monroe St. - Garage",
-        "price": 1650,
-        "description": "Enter this location at 55 E Monroe St. This is the Park Monroe garage, operated by SP+. It is located on the south/right-hand side of E Monroe St. (a one-way street) between S Wabash Ave. and S Michigan Ave. You may also enter this location at its other entrance, 50 E Adams, between S Michigan Ave and S Wabash Ave.",
-        "distance": "390 ft",
-        "image": "https://res.cloudinary.com/spothero/image/upload/v1579704583/front-end/code-challenge/vlv2pdojzj3yf8bdtuft.jpg"
-      },
-      "user": {
-        "fname": "Mylo",
-        "lname": "James",
-        "email": "mylo.james114@gmail.com",
-        "phone": "(847) 602-7276",
-        "id": "91caf55f-36a0-4ae1-8178-6dfe90b23127",
-        "activity": "active"
-      },
-      "id": 1
-    },
-    {
-      "spot": {
-        "id": 4,
-        "title": "210 S Wabash Ave. - Adams & Wabash Garage",
-        "price": 1400,
-        "description": "Enter this location at 210 S Wabash Ave. This is the Adams and Wabash garage operated by InterPark. It is located on the west/right-hand side of S Wabash Ave. (a one-way street) between E Adams St. and E Jackson Blvd. You may also enter this location at its other entrance, 17 E Adams St.",
-        "distance": "0.2 mi",
-        "image": "https://res.cloudinary.com/spothero/image/upload/v1579704583/front-end/code-challenge/xlmmigpvhmb0e1snodcj.jpg"
-      },
-      "user": {
-        "fname": "Mylo",
-        "lname": "James",
-        "email": "mylo.james114@gmail.com",
-        "phone": "(847) 602-7276",
-        "id": "91caf55f-36a0-4ae1-8178-6dfe90b23127",
-        "activity": "active"
-      },
-      "id": 2
-    },
-    {
-      "spot": {
         "id": 1,
         "title": "Seven Lions - Valet",
         "price": 1400,
@@ -134,10 +96,27 @@
         "lname": "James",
         "email": "mylo.james114@gmail.com",
         "phone": "(847) 602-7276",
-        "id": "91caf55f-36a0-4ae1-8178-6dfe90b23127",
-        "activity": "active"
+        "id": "0e1f01e7-fae7-40b9-a8d8-22769c748bc2"
       },
-      "id": 3
+      "id": 1
+    },
+    {
+      "spot": {
+        "id": 3,
+        "title": "124 S Wabash Ave. - Garage",
+        "price": 1500,
+        "description": "Enter this location at 124 S Wabash Ave. This is the Palmer House garage operated by ABM Parking. It is located on the west/right-hand side of S Wabash Ave St (a one-way street) between E Monroe St and E Adams St. It is just past the Corner Bakery and just before the main entrance of the Palmer House. Please note: The address 124 S. Wabash is for GPS purposes, this address will not be displayed above the garage entrance, look for a black and gold sign stating \"Parking\" in white print.",
+        "distance": "0.1 mi",
+        "image": "https://res.cloudinary.com/spothero/image/upload/v1579704583/front-end/code-challenge/gkcgzedhqojsrobzdvsa.jpg"
+      },
+      "user": {
+        "fname": "Mylo",
+        "lname": "James",
+        "email": "mylo.james114@gmail.com",
+        "phone": "(847) 602-7276",
+        "id": "0e1f01e7-fae7-40b9-a8d8-22769c748bc2"
+      },
+      "id": 2
     }
   ],
   "users": [
@@ -145,8 +124,8 @@
       "fname": "Mylo",
       "lname": "James",
       "email": "mylo.james114@gmail.com",
-      "phone": "",
-      "id": "91caf55f-36a0-4ae1-8178-6dfe90b23127"
+      "phone": "(847) 602-7276",
+      "id": "0e1f01e7-fae7-40b9-a8d8-22769c748bc2"
     }
   ]
 }

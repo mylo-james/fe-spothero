@@ -26,7 +26,7 @@ interface Spot {
     image: string;
 }
 
-/** 
+/**
  * Reservation structure
  */
 interface Reservation {
@@ -96,16 +96,18 @@ const sendUser = async (sessionId: string, user: User): Promise<number> => {
  * @param {User} user - The user data associated with the reservation.
  * @returns {Promise<number>} The HTTP status code of the response.
  */
-const sendReservation = async (spot: Spot, user: User): Promise<Reservation> => {
+const sendReservation = async (
+    spot: Spot,
+    user: User
+): Promise<Reservation> => {
     try {
         const url = '/reservations';
         const payload = {
-            spot: spot,
-            user: user,
+            spot,
+            user,
         };
 
         const {data} = await axiosInstance.post(url, payload);
-        console.log(data)
 
         return data;
     } catch (error) {
@@ -114,18 +116,14 @@ const sendReservation = async (spot: Spot, user: User): Promise<Reservation> => 
 };
 
 const getReservation = async (resId: number): Promise<Reservation> => {
-    console.log(resId)
     try {
         const url = `/reservations/${resId}`;
-        
-        const {data} = await axiosInstance.get(url)
-        console.log(data)
+        const {data} = await axiosInstance.get(url);
 
         return data;
-    } catch (error){
-        throw error
+    } catch (error) {
+        throw error;
     }
-
-}
+};
 
 export {sendUser, sendReservation, generateSessionId, getReservation};
