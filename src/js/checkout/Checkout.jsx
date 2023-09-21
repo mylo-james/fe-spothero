@@ -62,11 +62,13 @@ const Checkout = ({selectedSpot, dispatchPush: push, setSpot, spots, user}) => {
 
             if (!hasErrors && submitting) {
                 // Send the reservation when there are no errors
-                const res = await sendReservation(selectedSpot, user);
+                const reservation = await sendReservation(selectedSpot, user);
 
-                if (res === 201) {
+                if (reservation) {
                     // Redirect to confirmation page on successful reservation
-                    push('/confirmation');
+                    push(`/confirmation/${reservation.id}`);
+                } else {
+                    // handle errors
                 }
             }
         })();

@@ -48,7 +48,7 @@ const App = ({spots}) => {
                 }}
             />
             <Route
-                path="/confirmation"
+                path="/confirmation/:resId"
                 component={Confirmation}
             />
         </Switch>

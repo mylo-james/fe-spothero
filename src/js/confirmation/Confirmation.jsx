@@ -4,6 +4,9 @@ import {connect} from 'react-redux';
 import {push} from 'connected-react-router';
 import Button from '../common/Button';
 import Image from '../common/Image';
+import {getReservation} from '../checkout/api';
+import {updateSelected} from '../spot/spot-actions';
+import {updateUser} from '../checkout/checkout-actions';
 
 class Confirmation extends PureComponent {
     static propTypes = {
@@ -17,11 +20,19 @@ class Confirmation extends PureComponent {
         super(props);
 
         const {selectedSpot, pushTo, user} = props;
+    }
 
-        // if you refresh on confirmation and there isn't a selectedSpot, make sure to go back to search and render nothing here
-        if (!selectedSpot || !user) {
-            pushTo('/');
-        }
+    //onMount looks for the reservation based off the the id from params
+    componentDidMount() {
+        // make api call for id
+        getReservation(this.props.match.params.resId).then(data => {
+            if (data) {
+                this.props.updateSelected(data.spot);
+                this.props.updateUser(data.user);
+            } else {
+                pushTo('/');
+            }
+        });
     }
 
     _onPurchaseAnotherClick = evt => {
@@ -79,6 +90,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     pushTo: push,
+    updateSelected,
+    updateUser,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Confirmation);
