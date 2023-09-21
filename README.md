@@ -45,9 +45,9 @@ Users should be able to reserve a parking spot with ease.
 
 I've made improvements to the parking API, including additional routes for user data:
 
--   `GET /parkers/:sessionId`: Get user parking data by session ID.
--   `PUT /parkers/:sessionId`: Update user parking data by session ID.
--   `POST /parkers`: Create a new parking user.
+-   `GET /users/:sessionId`: Get user parking data by session ID.
+-   `PUT /users/:sessionId`: Update user parking data by session ID.
+-   `POST /users`: Create a new parking user.
 
 ## Documentation 📖
 
@@ -68,9 +68,9 @@ The parking API is available at `http://localhost:8001/api` and offers the follo
 -   `GET /reservations/:id`: Get parking reservation details by ID.
 -   `POST /reservations`: Make a parking reservation with the required fields.
 
--   `GET /parkers/:sessionId`: Get user parking data by parking session ID.
--   `PUT /parkers/:sessionId`: Update user parking data by parking session ID.
--   `POST /parkers`: Create a new parking user.
+-   `GET /users/:sessionId`: Get user parking data by parking session ID.
+-   `PUT /users/:sessionId`: Update user parking data by parking session ID.
+-   `POST /users`: Create a new parking user.
 
 ## Testing 🧪
 
